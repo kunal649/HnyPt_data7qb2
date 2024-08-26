@@ -7,7 +7,7 @@ const app = express();
 // Stylinng ho jaaye thodii
 app.use(express.static('public'));
     
-//ye bhn ka loda data read krega
+//Jara Data read krwa lete h 
 app.get('/data', (req, res) => {
     const filePath = path.join(__dirname, '..', 'data', 'data.txt');
     fs.readFile(filePath, 'utf8', (err, data) => {
