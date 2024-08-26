@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #000;
+  color: #00ffcc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  border: 2px solid #00ffcc;
+  border-radius: 15px;
+  padding: 20px;
+  
+  background: radial-gradient(circle, #0a0a0a 0%, #141414 100%);
+  box-shadow: 0 0 30px #00ffcc, 0 0 60px rgba(0, 255, 204, 0.6);
+}
+
+h1 {
+  color: #00ccff;
+  text-align: center;
+}
+
+pre {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  border: 2px solid #00ccff;
+  background-color: #000;
+  color: #00ccff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #00ccff;
+  color: #000;
+  box-shadow: 0 0 10px #00ccff;
+}
+    </style>
+    <title>Data Display</title>
+</head>
+<body>
+    <main>
+    <h1>Data from Text File</h1>
+    <pre id="file-data"></pre>
+    <script>
+        // Fetch the data from the backend and display it
+        fetch('/data')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('file-data').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+    </main>
+</body>
+</html>
