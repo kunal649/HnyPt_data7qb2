@@ -8,11 +8,11 @@
   body {
     background-color: #000;
     color: #00ffcc;
-    height: 100vh;
+    height:auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-y: scroll;
   }
   
   .container {
@@ -43,13 +43,13 @@
   }
   
   .data-box {
-    padding: 20px;
+    padding-top:60%;
+    display: flexbox;
     background: radial-gradient(circle, #0a0a0a 0%, #141414 100%);
     border-radius: 15px;
     text-align: center;
     position: relative;
     animation: fadeIn 1.5s ease-in-out;
-    overflow: hidden;
     border: 4px solid #00ffcc;
   }
   
