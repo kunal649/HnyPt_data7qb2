@@ -1,13 +1,13 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-
+const http = require('http');
 const app = express();
 
-// Stylinng ho jaaye thodii
+const PORT = process.env.PORT || 3000;
+const server = http.createServer(app);
 app.use(express.static('public'));
-    
-//Jara Data read krwa lete h 
+
 app.get('/data', (req, res) => {
     const filePath = path.join(__dirname, '..', 'data', 'data.txt');
     fs.readFile(filePath, 'utf8', (err, data) => {
@@ -18,8 +18,6 @@ app.get('/data', (req, res) => {
     });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
